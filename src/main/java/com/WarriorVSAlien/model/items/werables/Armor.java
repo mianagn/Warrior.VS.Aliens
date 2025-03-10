@@ -1,4 +1,7 @@
-package Domain;
+package main.java.com.WarriorVSAlien.model.items.werables;
+
+import main.java.com.WarriorVSAlien.model.characters.CharacterDomain;
+import main.java.com.WarriorVSAlien.model.items.Item;
 
 public class Armor extends Item {
     private final int defenseBoost;

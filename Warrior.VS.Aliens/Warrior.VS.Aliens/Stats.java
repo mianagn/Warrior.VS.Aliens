@@ -26,7 +26,7 @@ public class Stats {
 
     @Override
     public String toString() {
-        return "Domain.Stats{" +
+        return "main.java.com.WarriorVSAlien.model.Stats{" +
                 "health=" + health +
                 ", strength=" + strength +
                 ", agility=" + agility +

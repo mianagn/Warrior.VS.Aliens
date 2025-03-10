@@ -1,4 +1,7 @@
-package Domain;
+package main.java.com.WarriorVSAlien.model.items.potions;
+
+import main.java.com.WarriorVSAlien.model.characters.CharacterDomain;
+import main.java.com.WarriorVSAlien.model.items.Item;
 
 public class HealthPotion extends Item {
     private final int healingAmount;

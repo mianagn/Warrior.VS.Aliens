@@ -1,4 +1,6 @@
-package Domain;
+package main.java.com.WarriorVSAlien.model.characters;
+
+import main.java.com.WarriorVSAlien.model.Stats;
 
 public class Human extends CharacterDomain {
     public Human(String name ) {

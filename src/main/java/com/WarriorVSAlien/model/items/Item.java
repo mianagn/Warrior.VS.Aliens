@@ -1,4 +1,6 @@
-package Domain;
+package main.java.com.WarriorVSAlien.model.items;
+
+import main.java.com.WarriorVSAlien.model.characters.CharacterDomain;
 
 public abstract class Item {
     private final String name;

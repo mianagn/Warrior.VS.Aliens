@@ -1,4 +1,11 @@
-package Domain;
+package main.java.com.WarriorVSAlien.model.characters;
+
+import main.java.com.WarriorVSAlien.model.*;
+import main.java.com.WarriorVSAlien.model.items.*;
+import main.java.com.WarriorVSAlien.model.items.potions.HealthPotion;
+import main.java.com.WarriorVSAlien.model.items.potions.RagePotion;
+import main.java.com.WarriorVSAlien.model.items.weapons.Weapon;
+import main.java.com.WarriorVSAlien.model.items.werables.Armor;
 
 public class CharacterDomain {
     private final String name;

@@ -1,10 +1,13 @@
-package Domain;
+package main.java.com.WarriorVSAlien.model.characters;
+
+import main.java.com.WarriorVSAlien.model.Stats;
+import main.java.com.WarriorVSAlien.model.items.weapons.Weapon;
 
 public class Alien extends CharacterDomain {
     private static final Stats[] ALIEN_STATS = {
-            new Stats(800, 60, 8, 30, 15),  // Domain.Alien 1
-            new Stats(1000, 80, 12, 40, 18), // Domain.Alien 2
-            new Stats(1200, 100, 15, 50, 20)  // Domain.Alien 3
+            new Stats(800, 60, 8, 30, 15),  // main.java.com.WarriorVSAlien.model.characters.Alien 1
+            new Stats(1000, 80, 12, 40, 18), // main.java.com.WarriorVSAlien.model.characters.Alien 2
+            new Stats(1200, 100, 15, 50, 20)  // main.java.com.WarriorVSAlien.model.characters.Alien 3
     };
     private static int alienCount = 0;
     public Alien(String name) {

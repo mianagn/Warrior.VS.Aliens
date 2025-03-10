@@ -1,9 +1,9 @@
-package Tests;
+package test;
 
-import Domain.Alien;
-import Domain.CharacterDomain;
-import Domain.Human;
-import Domain.Stats;
+import main.java.com.WarriorVSAlien.model.characters.Alien;
+import main.java.com.WarriorVSAlien.model.characters.CharacterDomain;
+import main.java.com.WarriorVSAlien.model.characters.Human;
+import main.java.com.WarriorVSAlien.model.Stats;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

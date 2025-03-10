@@ -1,4 +1,4 @@
-package Domain;
+package main.java.com.WarriorVSAlien.model;
 
 public class Stats {
     private int health;
@@ -30,7 +30,7 @@ public class Stats {
 
     @Override
     public String toString() {
-        return "Domain.Stats{" +
+        return "main.java.com.WarriorVSAlien.model.Stats{" +
                 "health=" + health +
                 ", strength=" + strength +
                 ", agility=" + agility +

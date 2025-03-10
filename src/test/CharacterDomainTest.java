@@ -1,10 +1,10 @@
-package Tests;
+package test;
 
-import Domain.CharacterDomain;
-import Domain.Stats;
+import main.java.com.WarriorVSAlien.model.characters.CharacterDomain;
+import main.java.com.WarriorVSAlien.model.Stats;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
 public class CharacterDomainTest {
     @Test
     void testCharacterHealth() {

@@ -1,4 +1,4 @@
-package Domain;
+package main.java.com.WarriorVSAlien.model;
 
 import java.util.ArrayList;
 import java.util.List;

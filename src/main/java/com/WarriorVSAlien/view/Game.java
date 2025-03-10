@@ -1,24 +1,30 @@
-package App;
+package main.java.com.WarriorVSAlien.view;
 
-import Domain.*;
-import Domain.CharacterDomain;
+import main.java.com.WarriorVSAlien.controller.GameController;
+import main.java.com.WarriorVSAlien.controller.GameControllerImpl;
+import main.java.com.WarriorVSAlien.model.*;
+import main.java.com.WarriorVSAlien.model.characters.CharacterDomain;
+import main.java.com.WarriorVSAlien.model.items.werables.Armor;
+import main.java.com.WarriorVSAlien.model.items.Item;
+import main.java.com.WarriorVSAlien.model.items.weapons.Weapon;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.util.ArrayList;
+
 
 public class Game {
-    private GameState state;
-    private final Scanner scanner;
+
+    private GameControllerImpl gameController;
+    private final Scanner scanner = new Scanner(System.in);
     private boolean started = false;
-    public initializeGame(){
+
+    public void initializeGame() {
         printAsciiArt();
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
-        this.scanner = new Scanner(System.in);
         System.out.println("In a war-torn galaxy, warriors rise to claim their glory...");
         try {
             Thread.sleep(1000);
@@ -33,9 +39,11 @@ public class Game {
         }
         System.out.print("What is your name, warrior? ");
         String playerName = getValidPlayerName();
-        state=new GameState(playerName);
+        gameController = new GameControllerImpl();
     }
-    public Game() {}
+
+    public Game() {
+    }
 
 
     private String getValidPlayerName() {
@@ -53,18 +61,22 @@ public class Game {
         }
         return name;
     }
+
     public void startGame() {
-        //player = new Domain.Human("TestPlayer");
-        started=hasStarted();
-        CharacterDomain.equipPresetItems(player);
+        //player = new main.java.com.WarriorVSAlien.model.characters.Human("TestPlayer");
+        this.initializeGame();
+
+        started = hasStarted();
+        CharacterDomain.equipPresetItems(state.getPlayer());
         int currentEnemyIndex = 0;
 
-        while (currentEnemyIndex < enemies.size()) {
-            CharacterDomain currentEnemy = enemies.get(currentEnemyIndex);
+
+        while (currentEnemyIndex < gameController.getEnemies().size()) {
+            CharacterDomain currentEnemy = state.getEnemies().get(currentEnemyIndex);
             System.out.println("A new opponent appeared: " + currentEnemy.getName());
 
 
-            startBattle(currentEnemy);
+           // startBattle(currentEnemy);
 
 
             if (currentEnemyIndex != 2) {
@@ -79,21 +91,25 @@ public class Game {
             currentEnemyIndex++;
         }
 
+        if (! "".isEmpty()){
+            system
+        }
 
-        if (currentEnemyIndex == enemies.size()) {
+
+        if (currentEnemyIndex == state.getEnemies().size()) {
             System.out.println("Congratulations! You've defeated all opponents!");
         }
     }
-    public CharacterDomain getPlayer() { // Getter for player
-        return player;
-    }
-    public boolean getStarted(){
+
+
+
+    public boolean getStarted() {
         return started;
     }
 
     private void printBattleStatus(CharacterDomain opponent) {
         System.out.println("---------- Battle Status ----------");
-        System.out.println(player.getName() + " HP: " + player.getStats().getHealth() + "   Rage: " + player.getStats().getRage());
+        System.out.println(state.getPlayer().getName() + " HP: " + state.getPlayer().getStats().getHealth() + "   Rage: " + state.getPlayer().getStats().getRage());
         System.out.println(opponent.getName() + " HP: " + opponent.getStats().getHealth());
         System.out.println("-----------------------------------");
     }
@@ -102,7 +118,7 @@ public class Game {
         System.out.println("Choose an action:");
         System.out.println("1. Attack");
         System.out.println("2. Special Attack");
-        System.out.println("3. Use Domain.Item");
+        System.out.println("3. Use main.java.com.WarriorVSAlien.model.items.Item");
         System.out.println("4. Run");
     }
 
@@ -125,7 +141,7 @@ public class Game {
 
     private void useItem() {
         System.out.println("Choose an item to use:");
-        Inventory<Item> inventory = player.getInventory();
+        Inventory<Item> inventory = state.getPlayer().getInventory();
         for (int i = 0; i < inventory.getItems().size(); i++) {
             System.out.println((i + 1) + ". " + inventory.getItems().get(i).getName());
         }
@@ -144,7 +160,7 @@ public class Game {
                     if (selectedItem instanceof Weapon || selectedItem instanceof Armor) {
                         System.out.println("You have already equipped " + selectedItem.getName() + ". Please choose another item.");
                     } else {
-                        selectedItem.effect(player);
+                        selectedItem.effect(state.getPlayer());
                         inventory.removeItem(selectedItem);
                         validChoice = true;
                     }
@@ -184,9 +200,9 @@ public class Game {
         int randomAction = (int) (Math.random() * 3) + 1;
 
         if (randomAction == 3) {
-            opponent.specialAttack(player);
+            opponent.specialAttack(state.getPlayer());
         } else {
-            opponent.attack(player);
+            opponent.attack(state.getPlayer());
         }
     }
 
@@ -199,6 +215,7 @@ public class Game {
         }
         return choice.equals("yes");
     }
+
     public static void printAsciiArt() {
         System.out.println("         __.,,------.._");
         System.out.println("      ,\"   _      _   \"`.");
@@ -220,6 +237,7 @@ public class Game {
         System.out.println("         `  `                     \"`,-  ,'/       ,-\"'  /");
 
     }
+
     public boolean hasStarted() {
         return true;
     }

@@ -64,7 +64,7 @@ public class Game {
 
         if (player.getStats().getHealth() <= 0) {
             System.out.println(player.getName() + " has been defeated.");
-            System.out.println("App.Game Over! You lost.");
+            System.out.println("main.java.com.WarriorVSAlien.view.Game Over! You lost.");
             System.exit(0);
         } else {
             System.out.println(opponent.getName() + " has been defeated.");
@@ -82,7 +82,7 @@ public class Game {
         System.out.println("Choose an action:");
         System.out.println("1. Attack");
         System.out.println("2. Special Attack");
-        System.out.println("3. Use Domain.Item");
+        System.out.println("3. Use main.java.com.WarriorVSAlien.model.items.Item");
         System.out.println("4. Run");
     }
 

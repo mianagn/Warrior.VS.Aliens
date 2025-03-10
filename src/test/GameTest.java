@@ -1,28 +1,25 @@
-package Tests;
+package test;
 
+import main.java.com.WarriorVSAlien.controller.GameController;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class GameTest {
 
-    private Game game;
+    private GameController gameState;
 
     @BeforeEach
     void setUp() {
-            game = new Game();
+        gameState = new GameController("TestPlayer");
 
     }
 
     @Test
     void testStartGame() {
         // Assert that the player has been correctly initialized with the input name
-        Assertions.assertEquals("TestPlayer", game.getPlayer().getName());
+        Assertions.assertEquals("TestPlayer", gameState.getPlayer().getName());
     }
 
-    @Test
-    void testPlayerCreation() {
-        // Assert that the player was created correctly
-        Assertions.assertTrue(game.getStarted());
-    }
+
 }
