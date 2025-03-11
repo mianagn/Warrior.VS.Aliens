@@ -1,11 +1,9 @@
 package main.java.com.WarriorVSAlien;
-
 import main.java.com.WarriorVSAlien.view.Game;
-
 public class Main {
     public static void main(String[] args){
         Game game= new Game();
-        game.startGame();
+        game.initializeGame();
+        game.startNewGame();
     }
 }
-/*2 arxeia gamestate = ui ktlp kai game=dedomena , initialaization na ginetai sto ui  */
